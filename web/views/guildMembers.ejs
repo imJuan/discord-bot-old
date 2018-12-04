@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<body>
+	<% include partials/content/trackingphp.ejs %>
+
+	<main>
+		<% include partials/template/header.ejs %>
+
+		<div id="content">
+			<% include partials/template/aside_bot.ejs %>
+
+			<div id="console-content">
+				<h1>Members</h1>
+
+				<% users.forEach(user => { %>
+				<div class="user-card card-base">
+					<div class="img-circle user-card-icon">
+						<img src="<%= user.avatarURL %>" alt="Image not found" onerror="this.onerror=null; this.src='/images/Discord-Logo.png';">
+					</div>
+
+					<div class="user-card-details">
+						<h2><%= user.username %></h2>
+						<h3>#<%= user.discriminator %></h3>
+					</div>
+				</div>
+				<% }) %>
+
+				<div id="pagination">
+					<ul class="pagination-list">
+						<li id="prev"><a class="<%= disabledButtons.prev %>" href="./members?page=<%= curPage-1 %>">« Previous</a></li>
+						<li id="next"><a class="<%= disabledButtons.next %>" href="./members?page=<%= curPage+1 %>">Next »</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<% include partials/template/footer.ejs %>
+	</main>
+</body>
+</html>

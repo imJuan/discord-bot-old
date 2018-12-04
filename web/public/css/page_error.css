@@ -1,0 +1,28 @@
+
+#return {
+    font-size: 16px;
+    color: #282828;
+    text-decoration: underline;
+}
+
+#error-message {
+    font-size: 28px;
+    color: black;
+}
+
+#error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#error-content {
+    font-family: 'Raleway', sans-serif;
+    width: 300px;
+    float: right;
+}
+
+img {
+    float: left;
+}

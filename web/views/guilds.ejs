@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<body>
+	<% include partials/content/trackingphp.ejs %>
+	<div id="snackbar">This server doesn't have the bot in it.</div>
+
+	<main>
+		<% include partials/template/header.ejs %>
+
+		<div id="content">
+			<aside id="aside-content">
+				<h1>Bot</h1>
+				<div id="aside-card" class="card-base">
+					<div class="img-circle aside-icon">
+						<img src="<%= bot.user.displayAvatarURL %>" alt="Image not found" onerror="this.onerror=null; this.src='/images/Discord-Logo.png';"/>
+					</div>
+					<h3><%= bot.user.username %></h3>
+					<ul>
+						<li>Created: <%= new Date(bot.user.createdTimestamp).toLocaleDateString("en-US") %></li>
+						<li>Users: <%= bot.users.size %></li>
+						<li>Servers: <%= bot.guilds.size %></li>
+						<li>Ping: <%= Math.round(bot.ping) %></li>
+					</ul>
+					<div id="aside-invite">
+						<a href="https://discordapp.com/oauth2/authorize?client_id=173850975608635392&scope=bot&permissions=0">Invite</a>
+					</div>
+				</div>
+			</aside>
+
+			<div id="console-content">
+				<h1>Your Servers</h1>
+				<% if (user.guilds) { %>
+					<% user.guilds.forEach(guild => { %>
+						<div class="guild-card card-base <%= bot.guilds.has(guild.id) ? 'guild-available' : 'guild-not-available' %>" onclick="guildRedirect(this, '<%= guild.id %>')">
+							<div class="img-circle guild-card-icon">
+								<img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.jpg" alt="Image not found" onerror="this.onerror=null; this.src='/images/Discord-Logo.png';"/>
+							</div>
+
+							<div class="guild-card-details">
+								<h2><%= guild.name %></h2>
+							</div>
+						</div>
+					<% }); %>
+				<% } else { %>
+					<p>what a looser lol</p>
+				<% } %>
+			</div>
+		</div>
+
+		<% include partials/template/footer.ejs %>
+	</main>
+
+	<script>
+		// Redirect to guild home only if available
+		// if not, tell the user to fuck off
+		function guildRedirect(elem, guildID) {
+			if (elem.classList.contains('guild-available')) {
+				window.location = `/console/guild/${guildID}/members`;
+			} else {
+				window.document.getElementById('snackbar').classList.add('show');
+				setTimeout(() => {
+					window.document.getElementById('snackbar').classList.remove('show');
+				}, 3000)
+			}
+		}
+	</script>
+</body>
+</html>

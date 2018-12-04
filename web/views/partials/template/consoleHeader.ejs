@@ -1,0 +1,39 @@
+<header>
+	<link rel='stylesheet' href='/css/consoleHeader.css' />
+	<script>
+		function showDropDown() {
+			document.getElementById('main-nav-dropdown').classList.toggle('show');
+		}
+
+		window.onclick = function (event) {
+			if (!event.target.matches('.dropdown-btn')) {
+				let dropdowns = document.getElementsByClassName('dropdown-content');
+				for (let i = 0; i < dropdowns.length; i ++) {
+					let openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show'))
+						openDropdown.classList.remove('show');
+				}
+			}
+		}
+	</script>
+
+	<nav id="main-nav">
+		<h1><a href="/discord" class="main-nav-btn">Console</a></h1>
+
+		<div class="dropdown">
+			<div class="img-circle" style="margin-top: 10px; width: 30px; height: 30px">
+				<img src="https://discordapp.com/api/v6/users/<%= user.id %>/avatars/<%= user.avatar %>.jpg" onerror="this.src='/images/Discord-Logo.png'" onclick="showDropDown()" class="dropdown-btn">
+			</div>
+
+			<div id ="main-nav-dropdown" class="dropdown-content">
+				<div class="dropdown-header">
+					Logged in as <strong><%= user.username %></strong>
+				</div>
+				<div class="dropdown-divider"></div>
+				<a href="/discord/console" class="dropdown-item">Console</a>
+				<a href="/discord/help" class="dropdown-item">Help</a>
+				<a href="/discord/logout" class="dropdown-item">Logout</a>
+			</div>
+		</div>
+	</nav>
+</header>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<body>
+	<% include partials/content/trackingphp.ejs %>
+	<% include partials/template/consoleHeader.ejs %>
+
+	<main>
+		<div id="content">
+			<% include partials/template/consoleGuildSidebar.ejs %>
+
+			<div id="guild-content-card" class="console-card">
+				<h1 class="card-title">Logs</h1>
+				<!-- <input type="text" name="search" placeholder="Search.."> -->
+
+				<% logs.forEach(log => { %>
+					<div class="console-sub-card log-card <%= log.action %>">
+						<div class="staff-details">
+							<div class="img-circle staff-avatar">
+								<img src="<%= log.staff.avatarURL %>" onerror="this.src='/images/Discord-Logo.png'">
+							</div>
+							<h3 class="staff-name"><%= log.staff.username %></h3>
+						</div>
+						<p class="log-details"><strong>Action: </strong><%= log.action %></p>
+						<p class="log-details"><strong>User ID: </strong><%= log.user %>)</p>
+						<p class="log-details"><strong>Reason: </strong><%= log.reason %></p>
+						<p class="log-details"><strong>ID: </strong><%= log.id %></p>
+					</div>
+				<% }); %>
+
+
+				<div id="pagination">
+					<ul class="pagination-list">
+						<li id="prev"><a class="<%= disabledButtons.prev %>" href="./logs?page=<%= curPage-1 %>">« Previous</a></li>
+						<li id="next"><a class="<%= disabledButtons.next %>" href="./logs?page=<%= curPage+1 %>">Next »</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

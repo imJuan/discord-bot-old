@@ -1,0 +1,21 @@
+<div id="guild-settings-card" class="console-card">
+	<div id="guild-settings-info" class="console-sub-card">
+		<div class="img-circle">
+			<img src="<%= guild.iconURL %>" onerror="this.src='/images/Discord-Logo.png'">
+		</div>
+		<h2><%= guild.name %></h2>
+		<p class="guild-stat"><strong>Owner:</strong> <%= guild.owner.user.username %></p>
+		<p class="guild-stat"><strong>Members:</strong> <%= guild.memberCount %></p>
+		<p class="guild-stat"><strong>Created:</strong> <%= new Date(guild.createdTimestamp).toDateString() %></p>
+	</div>
+
+	<div id="guild-settings-list" class="console-sub-card">
+		<ul>
+			<li><a href="/discord/console/guild/<%= doc._id %>/members">Members</a></li>
+			<li><a href="/discord/console/guild/<%= doc._id %>/admins">Admins</a></li>
+			<li><a href="/discord/console/guild/<%= doc._id %>/commands">Bot Commands</a></li>
+			<li><a href="/discord/console/guild/<%= doc._id %>/logs">Logs</a></li>
+			<li><a href="/discord/console/guild/<%= doc._id %>/settings">Settings</a></li>
+		</ul>
+	</div>
+</div>

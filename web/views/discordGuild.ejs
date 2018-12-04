@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<body>
+	<% include partials/content/trackingphp.ejs %>
+	<% include partials/template/consoleHeader.ejs %>
+
+	<main>
+		<div id="content">
+			<% include partials/template/consoleGuildSidebar.ejs %>
+
+			<div id="guild-content-card" class="console-card">
+				home screen or some thing here
+			</div>
+		</div>
+	</main>
+</body>
+</html>

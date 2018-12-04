@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<body>
+	<% include partials/content/trackingphp.ejs %>
+	<% include partials/template/consoleHeader.ejs %>
+	<main>
+		<div id="content">
+			<% include partials/template/consoleGuildSidebar.ejs %>
+
+			<div id="guild-content-card" class="console-card">
+				<h1 class="card-title">Members</h1>
+				<!-- <input type="text" name="search" placeholder="Search.."> -->
+
+				<div id="content-collection">
+					<% users.forEach((user) => { %>
+					<div class="user-details">
+						<div class="img-circle user-avatar">
+							<img src="<%= user.avatarURL %>" onerror="this.src='/images/Discord-Logo.png'">
+						</div>
+						<h2 class="user-username"><%= user.username %></h2>
+						<h3 class="user-discriminator"> #<%= user.discriminator %></h3>
+					</div>
+					<% }) %>
+				</div>
+
+				<div id="pagination">
+					<ul class="pagination-list">
+						<li id="prev"><a class="<%= disabledButtons.prev %>" href="./members?page=<%= curPage-1 %>">« Previous</a></li>
+						<li id="next"><a class="<%= disabledButtons.next %>" href="./members?page=<%= curPage+1 %>">Next »</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

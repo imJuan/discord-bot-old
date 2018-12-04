@@ -1,0 +1,18 @@
+<aside id="aside-content">
+	<h1><a href="/console/guilds">&laquo; Back</a></h1>
+	<div id="aside-card" class="card-base">
+		<div class="img-circle aside-icon">
+			<img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.jpg" alt="Image not found" onerror="this.onerror=null; this.src='/images/Discord-Logo.png';"/>
+		</div>
+		<h3><%= guild.name %></h3>
+		<ul>
+			<li>Created: <%= new Date(guild.createdAt).toLocaleDateString("en-US") %></li>
+			<li>By: <%= guild.owner.user.username %></li>
+			<li>Region: <%= guild.region %></li>
+			<li class="list-divider"></li>
+			<li><a href="/console/guild/<%= guild.id %>/members">Members</a></li>
+			<li><a href="/console/guild<%= guild.id %>/logs">Mod Logs</a></li>
+			<li><a href="/console/<%= guild.id %>/commands">Bot Commands</a></li>
+		</ul>
+	</div>
+</aside>

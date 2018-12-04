@@ -1,0 +1,48 @@
+<!-- Header Partial -->
+<header>
+	<link rel='stylesheet' href='/css/header.css' />
+	<script>
+		function showDropDown() {
+			document.getElementById('main-nav-dropdown').classList.toggle('show');
+		}
+
+		window.onclick = (event) => {
+			if (!event.target.matches('.dropdown-btn')) {
+				let dropdowns = document.getElementsByClassName('dropdown-content');
+				for (let i = 0; i < dropdowns.length; i ++) {
+					let openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show'))
+						openDropdown.classList.remove('show');
+				}
+			}
+		}
+	</script>
+
+	<nav id="header">
+		<nav id="header-nav">
+			<h1><a href="/" class="header-nav-btn">Some Bot</a></h1>
+		</nav>
+
+		<nav id="header-nav-right" class="dropdown">
+			<% if (auth) { %>
+				<div class="img-circle dropdown-btn">
+					<img src="https://discordapp.com/api/v6/users/<%= user.id %>/avatars/<%= user.avatar %>.jpg" onerror="this.onerror=null; this.src='/images/Discord-Logo.png'" onclick="showDropDown()"
+					     class="dropdown-btn">
+				</div>
+
+				<div id ="main-nav-dropdown" class="dropdown-content">
+					<div class="dropdown-header">Logged in as <strong><%= user.username %></strong></div>
+					<div class="dropdown-divider"></div>
+					<a href="/console/guilds" class="dropdown-item">Console</a>
+					<a href="/console/help" class="dropdown-item">Help</a>
+					<a href="/console/logout" class="dropdown-item">Logout</a>
+				</div>
+			<% } else { %>
+				<ul>
+					<li><a href="/console/auth">Login</a></li>
+				</ul>
+			<% } %>
+		</nav>
+	</nav>
+</header>
+<!-- End of Header -->

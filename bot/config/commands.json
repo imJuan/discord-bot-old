@@ -1,0 +1,251 @@
+{
+    "public": {
+        "help": {
+            "description": "Get a list of available bot commands",
+            "params": [],
+            "category": "Bot",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 0
+            }
+        },
+        "ping": {
+            "description": "Ping Pong mother fucker!",
+            "params": [],
+            "category": "Bot",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 0
+            }
+        },
+
+        "toggle": {
+            "description": "Enable/Disable notifications for an event (member_add, member_remove, member_offline, message_edited, message_deleted)",
+            "params": [
+                {
+                    "name": "event",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "togglechannel": {
+          "description": "Add/Remove a channel to log for a event. Events available are: message_edited & message_deleted.",
+            "params": [
+                {
+                    "name": "event",
+                    "optional": false
+                },
+                {
+                    "name": "channel",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "altermessage": {
+            "description": "Change message that appears when the given event is emitted",
+            "params": [
+                {
+                    "name": "event",
+                    "optional": false
+                },
+                {
+                    "name": "message",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "alterchannel": {
+            "description": "Change channel where notifications will appear for the given event",
+            "params": [
+                {
+                    "name": "event",
+                    "optional": false
+                },
+                {
+                    "name": "channel",
+                    "optional": true
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "setdefaultrole": {
+            "description": "When user joins server they will automatically join this role",
+            "params": [
+                {
+                    "name": "role",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "togglemoderationlog": {
+            "description": "Enable/Disable moderation logs. Leave channel parameter blank to disable",
+            "params": [
+                {
+                    "name": "channel",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "setadminlevel": {
+            "description": "Set admin level for user. Ranges from 1 - 3.",
+            "params": [
+                {
+                  "name": "level",
+                    "optional": false
+                },
+                {
+                    "name": "user",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "warn": {
+            "description": "Give a user a warning",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 2
+            }
+        },
+        "kick": {
+            "description": "Kicks member from server",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 2
+            }
+        },
+        "ban": {
+            "description": "Bans member from server",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "unban": {
+            "description": "Unbans user from server",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "addrole": {
+            "description": "Add role to server member",
+            "params": [
+                {
+                    "name": "role",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "clear": {
+            "description": "Will go through current channel and delete last x amount of messages",
+            "params": [
+                {
+                    "name": "ammount",
+                    "optional": false
+                }
+            ],
+            "category": "Moderation",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 3
+            }
+        },
+        "lastlogin": {
+            "description": "Will check last login for member",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": true
+                }
+            ],
+            "category": "Bot",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 1
+            }
+        },
+        "details": {
+            "description": "Get some quick information of a user",
+            "params": [
+                {
+                    "name": "user",
+                    "optional": true
+                }
+            ],
+            "category": "Bot",
+            "defaults": {
+                "enabled": true,
+                "staff_level": 1
+            }
+        }
+    },
+    "private": {
+    }
+}

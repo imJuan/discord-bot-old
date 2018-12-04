@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+	<% include partials/content/tracking.ejs %>
+</head>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<body>
+	<% include partials/content/trackingphp.ejs %>
+	<% include partials/template/consoleHeader.ejs %>
+	<script src="/js/discord.11.0.0.min"></script>
+	<script>
+		function openAccordion(element) {
+			element.classList.toggle('active');
+			element.children[2].classList.toggle('show');
+		}
+	</script>
+
+	<main>
+		<div id="content">
+			<div id="console-user-card" class="console-card">
+				<div id="profile-card" class="console-sub-card">
+					<div class="img-circle">
+						<img src="https://discordapp.com/api/v6/users/<%= user.id %>/avatars/<%= user.avatar %>.jpg" onerror="this.src='/images/Discord-Logo.png'">
+					</div>
+					<p>
+						<%= user.username %><br>#<%= user.discriminator %>
+					</p>
+				</div>
+
+				<% user.guilds.forEach(guild => { %>
+				<a href="/discord/console/guild/<%= guild.id %>">
+					<div id="guild-card" class="console-sub-card">
+						<div class="img-circle">
+							<img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.jpg" onerror="this.src='/images/Discord-Logo.png'">
+						</div>
+
+						<div id="card-details">
+							<h3><%= guild.name %></h3>
+						</div>
+					</div>
+				</a>
+				<% });%>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

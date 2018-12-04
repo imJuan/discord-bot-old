@@ -1,0 +1,178 @@
+
+#content {
+    display: flex;
+    flex-direction: row;
+}
+
+#content aside {
+    width: 200px;
+    padding: 20px;
+}
+
+#content aside#aside-content {
+}
+
+#aside-content h1, #console-content h1 {
+    font-size: 24px;
+}
+
+#aside-content #aside-card {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+#aside-card .aside-icon {
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+}
+
+#aside-card h3 {
+    text-align: center;
+    padding: 5px;
+}
+
+#aside-card ul {
+    list-style: none;
+    padding: 5px 0;
+}
+
+#aside-card ul li {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 6px 0;
+}
+
+#aside-card ul li.list-divider {
+    min-height: 2px;
+    background-color: #cdcdcd;
+    margin: 4px 0;
+}
+
+#aside-card ul li a:hover {
+    color: #0094d7;
+}
+
+#aside-card #aside-invite a {
+    display: block;
+    padding: 8px 0;
+    margin-top: 12px;
+
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+
+    color: whitesmoke;
+    background-color: #0094d7;
+
+}
+
+#content #console-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.card-base {
+    background-color: #e1e1e1;
+    border-radius: 5px;
+}
+
+/* Guild Card */
+.guild-card {
+    margin: 10px 0;
+    padding: 10px;
+    height: 40px;
+
+    cursor: pointer;
+    transition: box-shadow .4s ease-out, transform, .4s ease-out;
+}
+
+.guild-card:hover {
+    box-shadow: 0 5px 5px -3px rgba(25, 25, 25, 0.7);
+    transform: scale(1.01);
+}
+
+.guild-main-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.guild-card-icon {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.guild-card img, .guild-card-details h2 {
+    cursor: pointer;
+}
+
+.guild-card-details {
+    clear: both;
+    display: inline-block;
+    margin-left: 10px;
+    line-height: 40px;
+}
+
+/* User Card */
+.user-card {
+    margin: 10px 0;
+    padding: 10px;
+    height: 50px;
+}
+
+.user-card-icon {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.user-card-details {
+    clear: both;
+    display: inline-block;
+    margin-left: 10px;
+    line-height: 50px;
+}
+
+.user-card-details h2, .user-card-details h3 {
+    display: inline;
+}
+
+.user-card-details h3 {
+    color: #b4b4b4;
+}
+
+/* Pagination Stuff */
+#pagination {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+ul.pagination-list {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination-list li {
+    display: inline;
+}
+
+ul.pagination-list li a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+ul.pagination-list li a.disabled {
+    font-weight: normal;
+    color: #9b9b9b;
+}
+
+ul.pagination-list li a:hover:not(.disabled) {
+    color: #0094d7;
+}
